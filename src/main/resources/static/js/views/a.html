@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="app" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="app" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/app.css">
+    <script src="/js/lib/angular.min.js"></script>
+	<script src="/js/lib/ngStorage.min.js"></script>
+	<script src="/js/lib/angular-ui-router.min.js"></script>
+	<script src="/js/app/app.js"></script>
+	<script src="/js/app/UserController.js"></script>
+</head>
+<body>
+<h2>Administrator Panel</h2>
+<div ng-view></div>
+<body>
+	<div ng-app="app" ng-controller="controller">
+		<button id="btn-id" ng-click="getAllUsers()">Press for Time</button>
+		<p ng-bind="welcome"></p>
+	</div>
+</body>
+
+</body>
+</html>
