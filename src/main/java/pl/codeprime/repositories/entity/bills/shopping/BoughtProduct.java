@@ -30,7 +30,7 @@ public class BoughtProduct {
 	private double price;
 	
 	@Column(name="quantity")
-	private int quantity;
+	private double quantity;
 
 	public Long getId() {
 		return id;
@@ -56,11 +56,11 @@ public class BoughtProduct {
 		this.price = price;
 	}
 
-	public int getQuantity() {
+	public double getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(double quantity) {
 		this.quantity = quantity;
 	}
 

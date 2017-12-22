@@ -3,6 +3,7 @@
  */
 package pl.codeprime.converters;
 
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 
 import pl.codeprime.common.functions.BoughtProductFunction;
 import pl.codeprime.common.functions.ShoppingBasketFunction;
+import pl.codeprime.repositories.entity.bills.shopping.BoughtProduct;
 import pl.codeprime.repositories.entity.bills.shopping.Product;
 import pl.codeprime.repositories.entity.bills.shopping.ShoppingBasket;
 import pl.codeprime.webservices.rest.response.BoughtProductResponse;
@@ -126,6 +128,42 @@ public class ResponseConverters {
 			responseEntity = 
 					new ResponseEntity<List<ShoppingBasketResponse>>(HttpStatus.BAD_REQUEST);
 		}
+		
+		return responseEntity;
+	}
+
+	/**
+	 * @param save
+	 * @return 
+	 */
+	public static BoughtProductResponse toBoughtProductResponse(BoughtProduct save) {
+		
+		BoughtProductResponse response = new BoughtProductResponse();
+		response.setAddDate(new Date());
+		response.setBoughtDate(new Date());
+		response.setPrice(save.getPrice());
+		response.setProductId(save.getId());
+		response.setQuantity(save.getQuantity());
+		response.setName(save.getName());
+		
+		return response;
+	}
+
+	/**
+	 * @param bProductResponses
+	 * @return 
+	 */
+	public static ResponseEntity<List<BoughtProductResponse>> 
+					toBoughtProductResponse(List<BoughtProductResponse> bProductResponses) {
+		
+		HttpStatus status = HttpStatus.OK;
+		
+		if(CollectionUtils.isEmpty(bProductResponses)) {
+			status = HttpStatus.NO_CONTENT;
+		}
+		
+		ResponseEntity<List<BoughtProductResponse>> responseEntity = 
+				new ResponseEntity<List<BoughtProductResponse>>(bProductResponses, status);
 		
 		return responseEntity;
 	}

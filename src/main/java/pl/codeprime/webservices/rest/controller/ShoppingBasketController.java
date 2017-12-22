@@ -24,7 +24,7 @@ import pl.codeprime.repositories.entity.bills.shopping.saver.dto.ShoppingBasketS
 import pl.codeprime.services.BoughtProductService;
 import pl.codeprime.services.ProductService;
 import pl.codeprime.services.ShoppingBasketService;
-import pl.codeprime.webservices.rest.controller.request.ShopBasketRequestDTO;
+import pl.codeprime.webservices.rest.controller.request.dto.ShopBasketRequestDTO;
 import pl.codeprime.webservices.rest.response.ShoppingBasketResponse;
 
 /**
@@ -45,9 +45,7 @@ public class ShoppingBasketController extends AbstractRestHandler  {
 	BoughtProductService bProductService;
 	
 	
-	@PutMapping(
-			value = "/add", 
-			produces = "application/json" )
+	@PutMapping(value = "/add", produces = "application/json")
 	ResponseEntity<ShoppingBasketResponse> create(@RequestBody ShopBasketRequestDTO basketDTO) {
 
 		ResponseEntity<ShoppingBasketResponse> response = null;
@@ -67,14 +65,22 @@ public class ShoppingBasketController extends AbstractRestHandler  {
 		return response;
 	}
 	
-	@GetMapping(
-			value = "/find/all/", 
-			produces = "application/json"
-			)
+	@GetMapping(value = "/find/all/{date}", produces = "application/json")
 	ResponseEntity<List<ShoppingBasketResponse>> findAllBasketByDate(@RequestParam(value = "date") Date date) {
 
 		List<ShoppingBasket> findByDate = basketService.findByDate(date);
-		ResponseEntity<List<ShoppingBasketResponse>> responseEntity = ResponseConverters.toResponseEntity(findByDate);
+		ResponseEntity<List<ShoppingBasketResponse>> responseEntity = 
+				ResponseConverters.toResponseEntity(findByDate);
+
+		return responseEntity;
+	}
+	
+	@GetMapping(value = "/find/all", produces = "application/json")
+	ResponseEntity<List<ShoppingBasketResponse>> findAll() {
+		
+		List<ShoppingBasket> findAll = basketService.findAll();
+		ResponseEntity<List<ShoppingBasketResponse>> responseEntity = 
+				ResponseConverters.toResponseEntity(findAll);
 
 		return responseEntity;
 	}

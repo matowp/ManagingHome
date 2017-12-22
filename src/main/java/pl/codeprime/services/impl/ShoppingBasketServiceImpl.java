@@ -133,4 +133,14 @@ public class ShoppingBasketServiceImpl implements ShoppingBasketService {
 		return save;
 	}
 
+	/* (non-Javadoc)
+	 * @see pl.codeprime.services.ShoppingBasketService#findAll()
+	 */
+	@Override
+	public List<ShoppingBasket> findAll() {
+		
+		List<ShoppingBasket> findAll = shoppingBasketRepository.findAll();
+		return findAll;
+	}
+
 }

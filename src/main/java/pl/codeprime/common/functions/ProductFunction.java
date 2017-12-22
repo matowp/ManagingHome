@@ -18,7 +18,8 @@ import pl.codeprime.webservices.rest.response.ProductResponse;
  */
 public class ProductFunction {
 
-	public static Function<Product, ProductResponse> TO_RESPONSE = new Function<Product, ProductResponse>() {
+	public static Function<Product, ProductResponse> TO_RESPONSE = 
+			new Function<Product, ProductResponse>() {
 
 		@Override
 		public ProductResponse apply(Product t) {
@@ -26,7 +27,8 @@ public class ProductFunction {
 		}
 	};
 	
-	public static Function<ProductSaverDTO, Product> TO_ENTITY = new Function<ProductSaverDTO, Product>() {
+	public static Function<ProductSaverDTO, Product> TO_ENTITY = 
+			new Function<ProductSaverDTO, Product>() {
 
 		@Override
 		public Product apply(ProductSaverDTO t) {
@@ -39,7 +41,8 @@ public class ProductFunction {
 		}
 	};
 	
-	public static Function<ProductRequestDTO, ProductSaverDTO> TO_SAVER = new Function<ProductRequestDTO, ProductSaverDTO>() {
+	public static Function<ProductRequestDTO, ProductSaverDTO> TO_SAVER = 
+			new Function<ProductRequestDTO, ProductSaverDTO>() {
 
 		@Override
 		public ProductSaverDTO apply(ProductRequestDTO t) {

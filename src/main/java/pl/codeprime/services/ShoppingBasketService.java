@@ -38,4 +38,6 @@ public interface ShoppingBasketService {
 	 */
 	ShoppingBasket save(ShoppingBasket shoppingBasket);
 	
+	List<ShoppingBasket> findAll();
+	
 }

@@ -5,17 +5,16 @@ package pl.codeprime.webservices.rest.controller;
 
 import java.util.Map;
 
-import javax.ws.rs.core.Response;
-
 import org.apache.log4j.Logger;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import pl.codeprime.webservices.rest.controller.request.ShopBasketRequestDTO;
-import pl.codeprime.webservices.rest.response.ResponseEnum;
+import pl.codeprime.webservices.rest.controller.request.dto.ShopBasketRequestDTO;
 
 /**
  * @author MOwsians
@@ -30,24 +29,22 @@ public class TestController  extends AbstractRestHandler {
 	
 	
 	@GetMapping
-	Response getRepositoryDetailsByUserAndRepositoryName(){
-		return ResponseEnum.OK.buildResponse();
+	ResponseEntity<Object> getRepositoryDetailsByUserAndRepositoryName(){
+		return new ResponseEntity<>(HttpStatus.OK);
    	}
 	
 	@PutMapping(value = "/put")
-	Response putTest(@RequestBody Map<String, Object> products){
+	ResponseEntity<Map<String, Object>> putTest(@RequestBody Map<String, Object> products){
 
 		LOGGER.info(products);
-		
-		return ResponseEnum.OK.buildResponse();
+		return new ResponseEntity<Map<String, Object>>(products, HttpStatus.OK);
    	}
 	
 	@PutMapping(value = "/basket")
-	Response putTestBasket(@RequestBody ShopBasketRequestDTO basketDTO){
+	ResponseEntity<ShopBasketRequestDTO> putTestBasket(@RequestBody ShopBasketRequestDTO basketDTO){
 
 		LOGGER.info(basketDTO);
-		
-		return ResponseEnum.OK.buildResponse();
+		return new ResponseEntity<ShopBasketRequestDTO>(basketDTO, HttpStatus.OK);
    	}
 
 }

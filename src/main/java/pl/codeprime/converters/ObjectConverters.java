@@ -20,7 +20,7 @@ import pl.codeprime.repositories.entity.bills.shopping.ShoppingBasket;
 import pl.codeprime.repositories.entity.bills.shopping.saver.dto.BoughtProductSaverDTO;
 import pl.codeprime.repositories.entity.bills.shopping.saver.dto.ProductSaverDTO;
 import pl.codeprime.repositories.entity.bills.shopping.saver.dto.ShoppingBasketSaverDTO;
-import pl.codeprime.webservices.rest.controller.request.ShopBasketRequestDTO;
+import pl.codeprime.webservices.rest.controller.request.dto.ShopBasketRequestDTO;
 import pl.codeprime.webservices.rest.to.ProductTO;
 
 /**

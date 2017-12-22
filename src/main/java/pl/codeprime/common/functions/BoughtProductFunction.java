@@ -26,10 +26,12 @@ public class BoughtProductFunction {
 					public BoughtProductResponse apply(BoughtProduct t) {
 						BoughtProductResponse response = new BoughtProductResponse();
 						t.getName();
-						response.setShopName(t.getName());
+						response.setName(t.getName());
 						response.setBoughtDate(new Date());
 						response.setAddDate(new Date());
 						response.setProductId(t.getId());
+						response.setPrice(t.getPrice());
+						response.setQuantity(t.getQuantity());
 						
 						return response;
 					}

@@ -11,7 +11,7 @@ public class BoughtProductSaverDTO {
 
 	private ProductSaverDTO product;
 	private double price;
-	private int quantity;
+	private double quantity;
 	
 	public ProductSaverDTO getProduct() {
 		return product;
@@ -29,11 +29,11 @@ public class BoughtProductSaverDTO {
 		this.price = price;
 	}
 	
-	public int getQuantity() {
+	public double getQuantity() {
 		return quantity;
 	}
 	
-	public void setQuantity(int quantity) {
+	public void setQuantity(double quantity) {
 		this.quantity = quantity;
 	}
 	
